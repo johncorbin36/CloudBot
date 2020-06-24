@@ -7,7 +7,7 @@ def likePost(browser, count, actions):
         print('Post embed was closed, returning to previous post.')
         browser.find_element_by_xpath('//*[@class="_9AhH0"]').click()
         i = 0
-        while i != count + 9:
+        while i != count + 18:
             time.sleep(.2)
             actions.perform()
             i += 1
