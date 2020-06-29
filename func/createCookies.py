@@ -1,10 +1,14 @@
-def createCookies(browser):
-    import time, pickle
-    from config import login
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
+import time
+import pickle
+from config import login
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+# Function to log in user and create cookies, accounts for 2factor auth
+def create_cookies(browser):
 
     # Login to Instagram
     browser.get('https://www.instagram.com/accounts/login/')

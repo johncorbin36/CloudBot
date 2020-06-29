@@ -1,26 +1,29 @@
-def likePost(browser, count, actions):
-    import time
-    from config import likeConfig
+import time
+from config import like_config
+
+
+# Likes individual post and returns total likes
+def like_post(browser, count, actions):
 
     # Check if post embed has closed
-    if browser.current_url == 'https://www.instagram.com/explore/tags/' + likeConfig['tagTarget'] + '/':
-        print('Post embed was closed, returning to previous post.')
-        browser.find_element_by_xpath('//*[@class="_9AhH0"]').click()
-        i = 0
-        while i != count + 18:
-            time.sleep(.2)
-            actions.perform()
-            i += 1
-        print('Successfully returned to previous post, resuming with likes.')
-        time.sleep(5)
+    if browser.current_url == 'https://www.instagram.com/explore/tags/' + like_config['tag_target'] + '/':
+        posts = []
+        while len(posts) < count + 12:
+            browser.execute_script('''
+                                   var fDialog = document.querySelector('div[role="dialog"] .isgrP');
+                                   fDialog.scrollTop = fDialog.scrollHeight
+                                   ''')
+            time.sleep(3)
+            posts = browser.find_elements_by_xpath('//*[@class="_9AhH0"]')
+        posts[count + 12].click()
 
     # Check for unlike button
     try:
         browser.find_element_by_xpath('//*[@aria-label="Unlike"]')
         print('Post already liked.')
-        time.sleep(5)
+        time.sleep(3)
         actions.perform()
-        time.sleep(5)
+        time.sleep(3)
         return count
     except:
         print('Post not liked, continuing.')
@@ -31,7 +34,7 @@ def likePost(browser, count, actions):
 
     # Get next post and return
     print('Post liked successfully. ' + str(count) + ' post(s) in total.')
-    time.sleep(5)
+    time.sleep(3)
     actions.perform()
-    time.sleep(5)
+    time.sleep(3)
     return count
