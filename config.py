@@ -6,11 +6,16 @@ login = {
 
 like_config = {
     # Likes per hour
-    'like_limit': 'INT_FOR_LIKES_PER_HOUR',
+    'like_limit': INT_FOR_LIKES_PER_HOUR,
     'tag_target': 'TAG'
 }
 
 follow_config = {
     'follow_target': 'FOLLOW_TARGET',
-    'max_follows': 'MAX_FOLLOWS_PER_RUN',
+    'max_follows': MAX_FOLLOWS_PER_RUN,
+}
+
+unfollow_config = {
+    'unfollow_target': 'UNFOLLOW_TARGET',
+    'max_unfollows': MAX_FOLLOWS_PER_RUN
 }

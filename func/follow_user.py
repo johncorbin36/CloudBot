@@ -2,7 +2,6 @@ import time
 from config import follow_config
 
 
-# Function to follow individual user, returns total successful follows 
 def follow(browser, user, count):
 
     # Get user profile

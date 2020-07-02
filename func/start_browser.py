@@ -25,3 +25,5 @@ def start_browser():
     # Refresh and return
     browser.get('https://www.instagram.com/')
     return browser
+
+# Write function for seperate browsers and generate seperate cookies

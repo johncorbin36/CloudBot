@@ -13,12 +13,12 @@ def create_cookies(browser):
     # Login to Instagram
     browser.get('https://www.instagram.com/accounts/login/')
     time.sleep(3)
-    loginUsername = browser.find_element_by_name('username')
-    loginUsername.send_keys(login['username'])
-    loginPassword = browser.find_element_by_name('password')
-    loginPassword.send_keys(login['password'])
+    login_username = browser.find_element_by_name('username')
+    login_username.send_keys(login['username'])
+    login_password = browser.find_element_by_name('password')
+    login_password.send_keys(login['password'])
     time.sleep(1)
-    loginPassword.send_keys(Keys.RETURN)
+    login_password.send_keys(Keys.RETURN)
     time.sleep(5)
 
     # Allow for user to enter 2Factor authenticator if applicable

@@ -30,8 +30,9 @@ def start_like_run(browser):
 
     # Start liking posts
     count = 0
+    users = []
     while count < limit:
-        count = like_post.like_post(browser, count, actions)
+        count, users = like_post.like_post(browser, count, actions, users)
 
     # Redirect browser back to homepage
     browser.get('https://www.instagram.com')

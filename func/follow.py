@@ -3,7 +3,6 @@ from func import follow_user, generate_follower_list
 from config import follow_config
 
 
-# Function to follow users, keeps count of total users followed and reads/writes to target followers file
 def start_follow_run(browser):
 
     # Check if target list exists
