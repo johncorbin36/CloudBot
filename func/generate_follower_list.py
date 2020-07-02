@@ -1,10 +1,10 @@
 import time
+import random
 from config import follow_config
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-# Generates new list of followers from set target, saves to list as txt file
 def get_followers(browser, target):
 
     # Define vars
@@ -28,6 +28,9 @@ def get_followers(browser, target):
                                ''')
         time.sleep(3)
         users = browser.find_elements_by_xpath('//*[@class="FPmhX notranslate  _0imsa "]')
+
+    # Scramble list (following users the bot does not follow users in the same order they were gathered)
+    random.shuffle(users)
 
     # Save user names to text file
     file = open('followerLists/' + target + '_users.txt', 'w')
